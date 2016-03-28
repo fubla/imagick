@@ -20,7 +20,8 @@ type ExceptionInfo struct {
 
 // Inicializes the opencl...
 func InitializeOpenCL () {
-	
-	C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, unsafe.Pointer, unsafe.Pointer, except)
+	p := unsafe.Pointer
+	e := ExceptionInfo.except
+	C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, p, p, e)
 }
 
