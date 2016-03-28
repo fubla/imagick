@@ -14,7 +14,7 @@ import "unsafe"
 
 // Inicializes the opencl...
 func InitializeOpenCL () {
-	p := *C.void
+	var p *int
 	q := unsafe.Pointer(p)
 	e := *C.ExceptionInfo
 	C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, p, p, e)
