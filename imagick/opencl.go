@@ -9,19 +9,14 @@ package imagick
 */
 import "C"
 
-import (
-	"unsafe"
-)
+import "unsafe"
 
-
-type ExceptionInfo struct {
-	except* C.ExceptionInfo
-}
 
 // Inicializes the opencl...
 func InitializeOpenCL () {
-	p := unsafe.Pointer
-	e := ExceptionInfo.except
+	p := *C.void
+	q := unsafe.Pointer(p)
+	e := *C.ExceptionInfo
 	C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, p, p, e)
 }
 
