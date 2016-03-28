@@ -24,4 +24,3 @@ func InitializeOpenCL () {
 	C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, unsafe.Pointer, unsafe.Pointer, except)
 }
 
-}
