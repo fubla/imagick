@@ -9,14 +9,16 @@ package imagick
 */
 import "C"
 
-import "unsafe"
+type MagickBooleanType int 
 
+const (
+    MagickFalse MagickBooleanType = iota
+    MagickTrue
+)
 
-// Inicializes the opencl...
-func InitializeOpenCL () {
-	var p *int
-	q := unsafe.Pointer(p)
-	e := *C.ExceptionInfo
-	C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, p, p, e)
+// Initializes opencl...
+func InitializeOpenCL () MagickBooleanType {
+	var e *C.ExceptionInfo
+	return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, nil, e)
 }
 
