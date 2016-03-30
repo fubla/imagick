@@ -8,15 +8,10 @@ package imagick
 #include <magick/MagickCore.h>
 */
 import "C"
-import "unsafe"
-
-var ClDeviceId C.cl_device_id
 
 // Initializes opencl...
 func InitializeOpenCL () C.MagickBooleanType {
-	device := unsafe.Pointer(&ClDeviceId)
     var e *C.ExceptionInfo
-	return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil,
-    device, e)
+	return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, nil, e)
 }
 
