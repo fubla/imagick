@@ -17,7 +17,7 @@ const (
 )
 
 // Initializes opencl...
-func InitializeOpenCL () MagickBooleanType {
+func InitializeOpenCL () C.MagickBooleanType {
 	var e *C.ExceptionInfo
 	return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, nil, e)
 }
