@@ -12,12 +12,13 @@ import "C"
 import "unsafe"
 
 type DeviceID C.cl_device_id
+type MagickBool C.MagickBooleanType
 
 // Initializes opencl...
 func InitializeOpenCL () (int, int) {
 	var device DeviceID
 	devicePointer := unsafe.Pointer(&device)
     	var e *C.ExceptionInfo
-		return int(C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e)), device
+		return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e), device
 }
 
