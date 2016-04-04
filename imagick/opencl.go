@@ -18,6 +18,6 @@ func InitializeOpenCL () (int, int) {
 	var device DeviceID
 	devicePointer := unsafe.Pointer(&device)
     	var e *C.ExceptionInfo
-		return int(C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e)), int(device)
+		return int(C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e)), device
 }
 
