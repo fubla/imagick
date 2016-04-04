@@ -8,7 +8,7 @@ package imagick
 #include <CL/cl.h>
 #include <magick/MagickCore.h>
 */
-import "C"'
+import "C"
 import "unsafe"
 
 // Initializes opencl...
