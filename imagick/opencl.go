@@ -16,6 +16,6 @@ func InitializeOpenCL () C.MagickBooleanType {
 	var device C.cl_device_id
 	devicePointer := unsafe.Pointer(&device)
     	var e *C.ExceptionInfo
-		return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, device, e)
+		return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e)
 }
 
