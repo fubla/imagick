@@ -11,14 +11,13 @@ package imagick
 import "C"
 import "unsafe"
 
-type MagickBool C.MagickBooleanType
 type DeviceID C.cl_device_id
 
 // Initializes opencl...
-func InitializeOpenCL () (MagickBool, DeviceID) {
+func InitializeOpenCL () (int, int) {
 	var device DeviceID
 	devicePointer := unsafe.Pointer(&device)
     	var e *C.ExceptionInfo
-		return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e), device
+		return int(C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e)), int(device)
 }
 
