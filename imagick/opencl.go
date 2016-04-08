@@ -31,6 +31,6 @@ func InitializeOpenCL () (MagickBool, DeviceID) {
 
 func (mw *MagickWand) AccelerateResizeImage (cols uint, rows uint, filter FilterType) error {
 		var e *C.ExceptionInfo
-		ok := C.AccelerateResizeImage(mw.GetImageFromMagickWand(), C.size_t(cols), C.size_t(rows), C.FilterTypes(filter), e)
+		ok := C.AccelerateResizeImage(*C.Image(mw.GetImageFromMagickWand()), C.size_t(cols), C.size_t(rows), C.FilterTypes(filter), e)
 		return mw.getLastErrorIfFailed(ok)
 }
