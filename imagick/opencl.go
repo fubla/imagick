@@ -22,6 +22,7 @@ func InitializeOpenCL () (MagickBool, DeviceID) {
 		return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e), device
 }
 
-func (mw *MagickWand) AccelerateResizeImage (width uint, height uint, filterType FIlterType, exceptionType ExceptionType) *MagickWand {
-		return NewMagickWandFromImage(C.AccelerateResizeImage(mw.mw.GetImageFromMagickWand(), width, height, filterType, exceptionType))
+func (mw *MagickWand) AccelerateResizeImage (width uint, height uint, filter FIlterType, exception ExceptionType) error {
+		ok := C.AccelerateResizeImage(mw.GetImageFromMagickWand(), C.size_t(cols), C.size_t(rows), C.FilterTypes(filter), C.ExceptionTypes(exception))
+		return mw.getLastErrorIfFailed(ok)
 }
