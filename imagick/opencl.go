@@ -14,6 +14,13 @@ import "unsafe"
 type DeviceID C.cl_device_id
 type MagickBool C.MagickBooleanType
 
+const (
+
+MagickTrue MagickBool = C.MagickTrue
+MagickFalse MagickBool = C.MagickFalse
+	
+)
+
 // Initializes opencl...
 func InitializeOpenCL () (MagickBool, DeviceID) {
 	var device DeviceID
