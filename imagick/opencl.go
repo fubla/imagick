@@ -21,7 +21,3 @@ func InitializeOpenCL () (MagickBool, DeviceID) {
     	var e *C.ExceptionInfo
 		return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e), device
 }
-
-func AccelerateResizeImage (image *C.Image) *Image {
-	
-}
