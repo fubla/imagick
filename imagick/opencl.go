@@ -26,7 +26,7 @@ func InitializeOpenCL () (MagickBool, DeviceID) {
 	var device DeviceID
 	devicePointer := unsafe.Pointer(&device)
     	var e *C.ExceptionInfo
-		return C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e), device
+		return MagickBool(C.InitImageMagickOpenCL(C.MAGICK_OPENCL_DEVICE_SELECT_AUTO, nil, devicePointer, e)), device
 }
 
 func (mw *MagickWand) AccelerateResizeImage (cols uint, rows uint, filter FilterType) error {
